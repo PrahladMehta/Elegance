@@ -6,6 +6,8 @@ import {inject} from 'vue';
 import { useRouter } from 'vue-router';
 import { reactive } from 'vue';
 
+import { otpRoute } from '@/Util';
+
 export default {
   setup(){
   const router=useRouter();
@@ -38,7 +40,7 @@ export default {
 
        console.log("hello");
 
-        const response=await fetch(`http://localhost:4000/api/v1/otp`,{
+        const response=await fetch(otpRoute,{
         method:"POST",
         body:JSON.stringify(user),
         headers: {

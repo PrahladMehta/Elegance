@@ -3,6 +3,8 @@
 import { reactive} from 'vue';
 import { useRouter } from 'vue-router';
 
+import { loginRoute } from '@/Util';
+
 
 export default {
   setup(){
@@ -34,7 +36,7 @@ export default {
 
       try{
 
-            const response=await fetch("http://localhost:4000/api/v1/login",{
+            const response=await fetch(loginRoute,{
         method:"POST",
         body:JSON.stringify(user),
 

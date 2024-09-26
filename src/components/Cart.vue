@@ -48,15 +48,19 @@ const getCart = async () => {
       router.push('/signup');
       return;
     }
+
+    // console.log(localStorage.getItem('shoptoken'));
     
     const response = await fetch(getAllCartRoute, {
-      method: 'GET',
-      headers: {
-        'authorization': localStorage.getItem('shoptoken')
-      }
+      method:'GET',
+        headers:{
+          authorization:localStorage.getItem('shoptoken'),
+        
+        },
     })
 
     const data = await response.json()
+    console.log(data);
     cart.value = data.cart.map(item => ({
       ...item,
       loading: { increase: false, decrease: false, remove: false }
